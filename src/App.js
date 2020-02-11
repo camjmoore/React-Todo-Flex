@@ -39,14 +39,14 @@ class App extends React.Component {
     //so you can be sure we'll be spreading in the state of todos:[]
     this.setState( (prevState) => {
       return {
-        todos: prevState.todos.map((todoObj) => {
-          if (todoObj.id === event.target.id){
+        todos: prevState.todos.map((obj) => {
+          if (obj.id === event.target.id){
             return {
-              ...todoObj, completed: !(todoObj.completed)
+              ...obj, completed: !obj.completed
             }
           } else {
             return {
-              todoObj
+              obj
             }
           }
         })
