@@ -3,9 +3,11 @@ import React from 'react';
 const TodoItems = props => {
   return(
     <div>
-    {props.todoItems2.map((task, index) => (
-      <h3 key={index}>{task.todo}</h3>
-    ))}
+      <ul>
+      {props.todoItems2.map((task, index) => (
+        <li key={index}>{task.todo}</li>
+      ))}
+      </ul>
     </div>
   )
 }

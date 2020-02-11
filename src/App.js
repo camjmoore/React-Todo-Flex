@@ -9,36 +9,43 @@ class App extends React.Component {
     super();
     this.state = {
       todos: [{todo: 'rthrth', id: Date.now(), completed: false}],
-      itemName: ''
+      itemName: " ",
     };
     console.log('constructor is running!')
   }
 
-  addTodo = (e) => {
+  addTodo = e => {
     e.preventDefault();
     const newItem = {
-      todo: this.setState.itemName,
+      todo: this.state.itemName,
       id: Date.now(),
       completed: false
     }
     this.setState({
-      todo: [...this.state.todos, newItem]
+      todos: [...this.state.todos, newItem]
     })
 
-    console.log('AddTodo Ran')
+    console.log('Add Todo Ran')
   }
 
-  handleChanges = e => {
-    this.state.setState({
-      [e.target.name]: e.target.value
+  handleChanges = (event) => {
+
+    this.setState({
+      itemName: event.target.value
     });
+    console.log(this.state.itemName)
   }
 
   render() {
+
+    console.log(this.state.itemName)
     return (
       <div>
         <h2>Todo List</h2>
-        <TodoList addTodo1={this.state.addTodo} todoItems1={this.state.todos} itemName1={this.state.itemName} handleChanges1={this.state.handleChanges}
+        <TodoList addTodo1={this.addTodo} 
+                  todoItems1={this.state.todos} 
+                  itemName1={this.state.itemName} 
+                  handleChanges1={this.handleChanges}
         />
       </div>
     );
