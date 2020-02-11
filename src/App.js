@@ -2,9 +2,6 @@ import React from 'react';
 import TodoList from './components/TodoList';
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
     this.state = {
@@ -43,10 +40,10 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List</h2>
-        <TodoList addTodo1={this.addTodo} 
-                  todoItems1={this.state.todos} 
-                  itemName1={this.state.itemName} 
-                  handleChanges1={this.handleChanges}
+        <TodoList addTodoA={this.addTodo} 
+                  todoItemsA={this.state.todos} 
+                  itemNameA={this.state.itemName} 
+                  handleChangesA={this.handleChanges}
         />
       </div>
     );

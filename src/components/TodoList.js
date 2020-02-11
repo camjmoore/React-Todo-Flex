@@ -5,8 +5,8 @@ import TodoItems from './TodoItems'
 const TodoList = props => {
   return(
     <div>
-      <TodoItems todoItems2={props.todoItems1}/>
-      <TodoForm addTodo2={props.addTodo1} itemName2={props.itemName1} handleChanges2={props.handleChanges1}/>
+      <TodoItems todoItemsB={props.todoItemsA}/>
+      <TodoForm addTodoB={props.addTodoA} itemNameB={props.itemNameA} handleChangesB={props.handleChangesA}/>
     </div>
   )
 }

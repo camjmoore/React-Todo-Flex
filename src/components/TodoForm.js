@@ -3,12 +3,12 @@ import React from 'react';
 const TodoForm = props => {
   return(
     <div>
-      <form onSubmit={props.addTodo2}> 
+      <form onSubmit={props.addTodoB}> 
         <input 
           name="itemName"
           type="text"
-          value={props.itemName2}
-          onChange={props.handleChanges2}
+          value={props.itemNameB}
+          onChange={props.handleChangesB}
         />
 
         <button type="submit">Add</button>

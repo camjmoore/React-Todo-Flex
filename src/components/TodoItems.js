@@ -4,7 +4,7 @@ const TodoItems = props => {
   return(
     <div>
       <ul>
-      {props.todoItems2.map((task, index) => (
+      {props.todoItemsB.map((task, index) => (
         <li key={index}>{task.todo}</li>
       ))}
       </ul>
