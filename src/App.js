@@ -22,21 +22,40 @@ class App extends React.Component {
       todos: [...this.state.todos, newItem],
       itemName: ' '
     })
-
     console.log('Add Todo Ran')
   }
 
   handleChanges = (event) => {
-
     this.setState({
       itemName: event.target.value
     });
     console.log(this.state.itemName)
   }
 
-  render() {
 
-    console.log(this.state.itemName)
+  toggleCompleted = event => {
+    event.persist()
+    //if you want to update a property on an item in the array you must replace the whole array because the array is state and state is immutable 
+    //so you can be sure we'll be spreading in the state of todos:[]
+    this.setState( (prevState) => {
+      return {
+        todos: prevState.todos.map((todoObj) => {
+          if (todoObj.id === event.target.id){
+            return {
+              ...todoObj, completed: !(todoObj.completed)
+            }
+          } else {
+            return {
+              todoObj
+            }
+          }
+        })
+      }
+    })
+    console.log(this.state.todos)
+  }
+
+  render() {
     return (
       <div>
         <h2>Todo List</h2>
@@ -44,6 +63,7 @@ class App extends React.Component {
                   todoItemsA={this.state.todos} 
                   itemNameA={this.state.itemName} 
                   handleChangesA={this.handleChanges}
+                  toggleCompletedA={this.toggleCompleted}
         />
       </div>
     );
