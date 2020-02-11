@@ -8,8 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [{todo: 'rthrth', id: Date.now(), completed: false}],
-      itemName: " ",
+      todos: [],
+      itemName: ' '
     };
     console.log('constructor is running!')
   }
@@ -22,7 +22,8 @@ class App extends React.Component {
       completed: false
     }
     this.setState({
-      todos: [...this.state.todos, newItem]
+      todos: [...this.state.todos, newItem],
+      itemName: ' '
     })
 
     console.log('Add Todo Ran')

@@ -7,8 +7,8 @@ const TodoForm = props => {
         <input 
           name="itemName"
           type="text"
+          value={props.itemName2}
           onChange={props.handleChanges2}
-          placeholder="add a Todo"
         />
 
         <button type="submit">Add</button>
