@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import './components/Todo.css';
 
 class App extends React.Component {
   constructor() {
@@ -34,36 +35,44 @@ class App extends React.Component {
 
 
   toggleCompleted = event => {
-    event.persist()
-    //if you want to update a property on an item in the array you must replace the whole array because the array is state and state is immutable 
-    //so you can be sure we'll be spreading in the state of todos:[]
-    this.setState( (prevState) => {
-      return {
-        todos: prevState.todos.map((obj) => {
-          if (obj.id === event.target.id){
-            return {
-              ...obj, completed: !obj.completed
-            }
-          } else {
-            return {
-              obj
-            }
-          }
-        })
+    // console.log(event.target.id)
+    const trackEvent = event.target.id
+    const newTodos = this.state.todos.map((obj) => {
+      //make sure to match the types - wasn't working before because one value was a string the other was a num
+      if (`${obj.id}` === trackEvent){
+        console.log('does it get here?')
+        return {
+          ...obj, completed: !obj.completed
+        }
+      } else {
+        return obj
       }
     })
-    console.log(this.state.todos)
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
+  clearCompleted = (e) =>{
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(task => {
+        return !task.completed
+      })
+    })
   }
 
   render() {
     return (
-      <div>
+      <div className="todo-title">
         <h2>Todo List</h2>
         <TodoList addTodoA={this.addTodo} 
                   todoItemsA={this.state.todos} 
                   itemNameA={this.state.itemName} 
                   handleChangesA={this.handleChanges}
                   toggleCompletedA={this.toggleCompleted}
+                  clearCompletedA={this.clearCompleted}
         />
       </div>
     );

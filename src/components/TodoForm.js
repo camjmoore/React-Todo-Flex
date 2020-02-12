@@ -12,7 +12,7 @@ const TodoForm = props => {
         />
 
         <button type="submit">Add</button>
-        {/* <button>Clear Completed</button> */}
+        <button onClick={props.clearCompletedB}>Clear Completed</button>
 
       </form>
     </div>

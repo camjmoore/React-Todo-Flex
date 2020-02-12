@@ -6,7 +6,7 @@ const TodoList = props => {
   return(
     <div>
       <TodoItems toggleCompletedB={props.toggleCompletedA} todoItemsB={props.todoItemsA}/>
-      <TodoForm  addTodoB={props.addTodoA} itemNameB={props.itemNameA} handleChangesB={props.handleChangesA}/>
+      <TodoForm  clearCompletedB={props.clearCompletedA} addTodoB={props.addTodoA} itemNameB={props.itemNameA} handleChangesB={props.handleChangesA}/>
     </div>
   )
 }
